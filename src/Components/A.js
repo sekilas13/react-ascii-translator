@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Container, Row, Col, Form } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
+import Translator from "./Translator";
 
 function A() {
   const [state, UNSAFE_setState] = useState({ ascii: "", text: "" });
@@ -21,6 +22,8 @@ function A() {
     // eslint-disable-next-line
   }, [state.ascii]);
 
+  const setter = (ascii) => setState({ ascii });
+
   return (
     <Container className="mt-3">
       <Row>
@@ -28,33 +31,13 @@ function A() {
           <h2 className="text-center">Konversi ASCII ke Teks Biasa</h2>
         </Col>
       </Row>
-      <Form className="mt-2 text-center">
-        <Row>
-          <Col md={6}>
-            <Form.Group>
-              <Form.Label as="h4">Masukan ASCII</Form.Label>
-              <Form.Control
-                as="textarea"
-                rows={5}
-                value={state.ascii}
-                spellCheck={false}
-                onChange={(e) => setState({ ascii: e.target.value })}
-              ></Form.Control>
-            </Form.Group>
-          </Col>
-          <Col md={6}>
-            <Form.Group>
-              <Form.Label as="h4">Teks konversi</Form.Label>
-              <Form.Control
-                as="textarea"
-                rows={5}
-                value={state.text}
-                readOnly
-              ></Form.Control>
-            </Form.Group>
-          </Col>
-        </Row>
-      </Form>
+      <Translator
+        labelInput="Masukan ASCII"
+        labelOutput="Teks Konversi"
+        fromText={state.text}
+        toText={state.ascii}
+        setter={setter}
+      />
     </Container>
   );
 }
