@@ -9,12 +9,10 @@ function Navigasi() {
     {
       text: "Char ke ASCII",
       path: "/",
-      active: lokasi.pathname === "/",
     },
     {
       text: "ASCII ke Char",
       path: "/a",
-      active: lokasi.pathname === "/a",
     },
   ];
 
@@ -25,7 +23,12 @@ function Navigasi() {
         <Navbar.Collapse id="navigasi-nav">
           <Nav className="mx-auto text-center">
             {Link.map((l, i) => (
-              <Nav.Link as={Rink} to={l.path} active={l.active} key={i}>
+              <Nav.Link
+                as={Rink}
+                to={l.path}
+                active={lokasi.pathname === l.path}
+                key={i}
+              >
                 {l.text}
               </Nav.Link>
             ))}
