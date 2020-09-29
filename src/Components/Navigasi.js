@@ -1,20 +1,10 @@
 import React from "react";
 import { Container, Navbar, Nav } from "react-bootstrap";
 import { Link as Rink, useLocation } from "react-router-dom";
+import Link from "./Link";
 
 function Navigasi() {
   const lokasi = useLocation();
-
-  const Link = [
-    {
-      text: "Char ke ASCII",
-      path: "/",
-    },
-    {
-      text: "ASCII ke Char",
-      path: "/a",
-    },
-  ];
 
   return (
     <Navbar bg="dark" variant="dark" sticky="top" expand="lg">
