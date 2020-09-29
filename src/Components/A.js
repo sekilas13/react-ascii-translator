@@ -34,8 +34,8 @@ function A() {
       <Translator
         labelInput="Masukan ASCII"
         labelOutput="Teks Konversi"
-        fromText={state.text}
-        toText={state.ascii}
+        fromText={state.ascii}
+        toText={state.text}
         setter={setter}
       />
     </Container>
