@@ -7,14 +7,10 @@ function Ch() {
   const setState = (data) => UNSAFE_setState({ ...state, ...data });
 
   useEffect(() => {
-    let arr = [];
     const text = state.text.split("");
     if (state.text !== "") {
-      text.forEach((t) => arr.push(t.charCodeAt()));
       setState({
-        ascii: arr.reduce((curr, accu) => {
-          return String(curr) + " " + String(accu);
-        }),
+        ascii: text.map((text) => text.charCodeAt()).join(" "),
       });
     } else {
       setState({ ascii: "" });
